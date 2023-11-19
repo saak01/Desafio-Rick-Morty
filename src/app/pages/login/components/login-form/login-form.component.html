@@ -1,0 +1,27 @@
+
+<form [formGroup]="loginFormGroup" class="form-container">
+  <!-- email form -->
+  <div>
+    <label for="email">Email</label>
+    <input formControlName="email"  id="emai" type="text" placeholder="user@gmail.com">
+    <div>
+      <mat-error *ngIf="loginFormGroup.get('email')?.hasError('required')">Email necessário</mat-error>
+      <mat-error *ngIf="loginFormGroup.get('email')?.hasError('email')">Email válido</mat-error>
+    </div>
+  </div>
+  <!-- password form -->
+  <div>
+    <label for="password">Password</label>
+    <input formControlName="password" id="password" type="password" placeholder="***">
+    <!-- error container -->
+    <div>
+      <mat-error *ngIf="loginFormGroup.get('password')?.hasError('required')">Senha necessária</mat-error>
+    </div>
+  </div>
+</form>
+<!-- login button -->
+<div class="login-holder" >
+  <button (click)="onClick()" class="login-button" [disabled]="loginFormGroup.invalid" [ngStyle]="{'opacity':(loginFormGroup.invalid === true) ? '0.5' : '1'}">
+    Login
+  </button>
+</div>

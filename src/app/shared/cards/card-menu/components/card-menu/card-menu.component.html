@@ -1,0 +1,33 @@
+<div class="card" style="width: 18rem;">
+  <img src="{{dataCard.image}}" class="card-img-top" alt="...">
+  <div class="card-body">
+
+    <div class="card-header-container">
+      <!-- Name & Specie -->
+      <div>
+        <span class="card-name">
+          {{dataCard.name}}
+        </span>
+        <span class="card-species">{{dataCard.species}}</span>
+      </div>
+      <!-- Status -->
+      <div>
+        <span>{{dataCard.status}}</span>
+        <div class="status-circle"
+          [ngStyle]="{'background-color': (dataCard.status == 'Dead') ? '#ff0000' : '#00ff00' }">
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <div>
+
+      <button href="" class="btn btn-primary">Ver Mais</button>
+    </div>
+    <!-- Button -->
+
+
+  </div>
+</div>
