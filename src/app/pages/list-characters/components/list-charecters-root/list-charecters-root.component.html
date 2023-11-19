@@ -1,4 +1,9 @@
-<section class="list-container">
+<section class="list-container" infinite-scroll infinite-scroll
+infinite-scroll [infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="500"
+(scrolled)="onScrollDown()"
+[scrollWindow]="false">
+
   <header class="d-flex justify-content-center">
     <input class="input-search" type="text" (input)="onInputChange($event)">
     <button class="button-search"><mat-icon>search</mat-icon></button>
@@ -9,7 +14,7 @@
     </div>
   </section>
 
-  <section class="d-flex flex-row flex-wrap" *ngIf="isLoading === false" infinite-scroll >
+  <section class="d-flex flex-row flex-wrap" *ngIf="isLoading === false">
     <div class="col-12 col-lg-3 col-md-6 col-sm-12 col-xs-12"  *ngFor="let item of listFilteredCharacters" id="cards-container">
       <app-card-menu [dataCard]="item"></app-card-menu>
     </div>
@@ -24,3 +29,6 @@
 
 
 </section>
+
+
+
