@@ -9,7 +9,7 @@
     </div>
   </section>
 
-  <section class="d-flex flex-row flex-wrap" *ngIf="isLoading === false">
+  <section class="d-flex flex-row flex-wrap" *ngIf="isLoading === false" infinite-scroll >
     <div class="col-12 col-lg-3 col-md-6 col-sm-12 col-xs-12"  *ngFor="let item of listFilteredCharacters" id="cards-container">
       <app-card-menu [dataCard]="item"></app-card-menu>
     </div>

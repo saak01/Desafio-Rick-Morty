@@ -19,6 +19,7 @@ export class ListCharectersRootComponent implements OnInit{
 
   isLoading: boolean = true;
 
+
   constructor(private listCharacterService: ListCharactersService){}
 
 
@@ -40,6 +41,10 @@ export class ListCharectersRootComponent implements OnInit{
       const characterName = character.name.toLowerCase();
       return characterName.includes(search.toLowerCase());
     });
+  }
+
+  onScrollDown(){
+    console.log('teste');
   }
 
 

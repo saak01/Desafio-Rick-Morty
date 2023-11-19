@@ -19,6 +19,8 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { CardSkeletonRootComponent } from './shared/skeletons/card-skeleton/components/card-skeleton-root/card-skeleton-root.component';
 import { CardMenuComponent } from './shared/cards/card-menu/components/card-menu/card-menu.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    InfiniteScrollModule
 
   ],
   providers: [],
