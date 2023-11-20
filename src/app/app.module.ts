@@ -20,6 +20,8 @@ import { CardSkeletonRootComponent } from './shared/skeletons/card-skeleton/comp
 import { CardMenuComponent } from './shared/cards/card-menu/components/card-menu/card-menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { CharactersDetailsComponent } from './pages/list-characters/components/characters-details/characters-details.component';
+import { ListFavoritesRootComponent } from './pages/list-favorites/components/list-favorites-root/list-favorites-root.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     ListCharectersRootComponent,
     CardSkeletonRootComponent,
     CardMenuComponent,
+    CharactersDetailsComponent,
+    ListFavoritesRootComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +52,13 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     NgxSkeletonLoaderModule,
     InfiniteScrollModule
 
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }
+
+

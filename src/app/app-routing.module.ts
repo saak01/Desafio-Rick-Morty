@@ -3,12 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginRootComponent } from './pages/login/components/login-root/login-root.component';
 import { HomeRootComponent } from './pages/home/components/home-root/home-root.component';
 import { ListCharectersRootComponent } from './pages/list-characters/components/list-charecters-root/list-charecters-root.component';
+import { CharactersDetailsComponent } from './pages/list-characters/components/characters-details/characters-details.component';
+import { ListFavoritesRootComponent } from './pages/list-favorites/components/list-favorites-root/list-favorites-root.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginRootComponent },
   { path:"home", component:HomeRootComponent,children:[
   { path:"list-characters", component:ListCharectersRootComponent},
-
+  { path: "characters-details/:id", component: CharactersDetailsComponent },
+  { path:"list-favorite", component:ListFavoritesRootComponent},
   ]},
   { path:"", redirectTo:"login", pathMatch:"full"},
 
