@@ -13,12 +13,11 @@ import { ManageCharactersService } from 'src/app/core/services/characters/manage
 export class ListCharectersRootComponent implements OnInit {
 
   mockData = Array.from({ length: 20 });
-
   infoApi: ApiRequesteInterface | undefined;
-
   listCharacters: Array<CharacterInterface> = [];
   listFilteredCharacters: Array<CharacterInterface> = [];
   isLoading: boolean = true;
+  searchTerm: string = '';
 
   constructor(
     private listCharacterService: ListCharactersService,
@@ -49,11 +48,15 @@ export class ListCharectersRootComponent implements OnInit {
   }
 
   onInputChange(event: any) {
-    const search = (event.target as HTMLInputElement).value;
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    this.filterCharacters();
+  }
+
+  filterCharacters() {
     // Filter characters based on the search input
     this.listFilteredCharacters = this.listCharacters.filter((character: CharacterInterface) => {
       const characterName = character.name.toLowerCase();
-      return characterName.includes(search.toLowerCase());
+      return characterName.includes(this.searchTerm.toLowerCase());
     });
   }
 
@@ -63,12 +66,21 @@ export class ListCharectersRootComponent implements OnInit {
       firstValueFrom(this.listCharacterService.getNextOrPrevCharacters(this.infoApi.info.next))
         .then((data) => {
           this.infoApi = data;
-          this.listCharacters.push(...data.results);
-          console.log(this.listCharacters);
+          const newCharacters = data.results;
+
+          // Combine existing characters with new characters
+          this.listCharacters = [...this.listCharacters, ...newCharacters];
+
+          // Filter characters based on the search input
+          this.listFilteredCharacters = this.listCharacters.filter((character: CharacterInterface) => {
+            const characterName = character.name.toLowerCase();
+            return characterName.includes(this.searchTerm.toLowerCase());
+          });
         })
         .catch((error) => {
           console.log(error);
         });
     }
   }
+
 }

@@ -73,17 +73,19 @@ export class CharactersDetailsComponent {
     this.favorite = this.favoriteList.some((char) => char.id === this.character?.id);
   }
 
-  // Toggle the favorite status of the character
-  async onFavorite(): Promise<void> {
-    if (this.favorite) {
-      await this.removeFromFavorites();
-    } else {
-      await this.addToFavorites();
+    // Toggle the favorite status of the character
+  onFavorite(): void {
+    this.favorite = !this.favorite;
+
+    if (this.favorite === false) {
+      this.removeFromFavorites();
+    } else if(this.favorite === true) {
+      this.addToFavorites();
     }
   }
 
   // Add the character to the favorites list
-  async addToFavorites(): Promise<void> {
+  addToFavorites(): void {
     const isCharacterAlreadyFavorited = this.favoriteList.find(
       (char) => char.id === this.character?.id
     );
@@ -94,10 +96,11 @@ export class CharactersDetailsComponent {
   }
 
   // Remove the character from the favorites list
-  async removeFromFavorites(): Promise<void> {
+  removeFromFavorites(): void {
     const updatedList = this.favoriteList.filter((char) => char.id !== this.character?.id);
     localStorage.setItem('favoriteList', JSON.stringify(updatedList));
   }
+
 
   // Navigate back to the list of characters
   onClick() {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/guards/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -9,27 +9,24 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent {
 
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService) {}
 
-  // Valid email and password values
-  valid_email: string = "ricksanchez@rick.com";
-  valid_password: string = '123';
+  // Propriedade para controlar a exibição da mensagem de erro
+  loginInvalid: boolean = false;
 
-  // FormGroup for the login form with validators
+  // FormGroup para o formulário de login com validadores
   loginFormGroup = new FormGroup({
     email: new FormControl('ricksanchez@rick.com', [Validators.required, Validators.email]),
     password: new FormControl('123', [Validators.required])
   });
 
-  // Function called when the login button is clicked
-  onClick(): boolean {
+  // Função chamada quando o botão de login é clicado
+  onClick(): void {
+    // Verifica se o e-mail e a senha inseridos correspondem aos valores válidos
+    const { email, password } = this.loginFormGroup.value;
+    this.authService.login(email!, password!);
 
-    // Check if the entered email and password match the valid values
-    if (this.valid_email == this.loginFormGroup.value.email && this.valid_password == this.loginFormGroup.value.password) {
-      // Navigate to the '/home/list-characters' route if the credentials are valid
-      this.router.navigate(['/home/list-characters']);
-      return true;
-    }
-    return false;
+    // Atualiza a propriedade loginInvalid com base no estado de autenticação
+    this.loginInvalid = !this.authService.Authenticated();
   }
 }

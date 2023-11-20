@@ -24,6 +24,7 @@ import { CharactersDetailsComponent } from './pages/list-characters/components/c
 import { ListFavoritesRootComponent } from './pages/list-favorites/components/list-favorites-root/list-favorites-root.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,7 @@ import { ListFavoritesRootComponent } from './pages/list-favorites/components/li
     CardSkeletonRootComponent,
     CardMenuComponent,
     CharactersDetailsComponent,
-    ListFavoritesRootComponent
+    ListFavoritesRootComponent,
   ],
   imports: [
     BrowserModule,

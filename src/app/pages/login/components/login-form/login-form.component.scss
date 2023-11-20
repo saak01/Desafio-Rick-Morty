@@ -14,16 +14,18 @@ input {
 
 .form-container {
   padding: 0px 80px 0px 80px;
+
   @media screen and (max-width: 470px) {
-  padding: 0px 40px 0px 40px;
+    padding: 0px 40px 0px 40px;
   }
 }
 
-.login-holder{
+.login-holder {
   padding: 0px 80px 0px 80px;
+
   @media screen and (max-width: 470px) {
     padding: 0px 40px 0px 40px;
-    }
+  }
 }
 
 .login-button {
@@ -34,7 +36,14 @@ input {
   color: #ffffff;
   font-size: 24px;
   font-weight: bold;
-  margin-top: 100px;
+  margin-top: 20px;
   border: none;
+}
+
+.mat-error {
+  color: red;
+  margin-top: 5px;
+  font-size: 14px;
+  display: block;
 }
 
