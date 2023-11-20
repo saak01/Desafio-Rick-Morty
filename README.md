@@ -3,10 +3,11 @@
 ## Introdução
 O projeto Rick and Morty SPA é uma Single Page Application desenvolvida utilizando a API Rick & Morty para o consumo de dados. A aplicação segue o modelo de dashboard, apresentando listagens e detalhes dos personagens da série.
 
+### [Acesse a Demo](https://central-rick-morr.web.app/login) 
+
 ## FeedBack
 Gentilmente, peço que compartilhe seus feedbacks ou sugestões, enviando um e-mail para joaovictorcosta.dev@gmail.com. Sua opinião contribuirá para meu aprimoramento como desenvolvedor!
 
-### [Acesse a Demo](https://central-rick-morr.web.app/login) 
 
 ## Adicionais
 ### [Ui Figma](https://www.figma.com/file/h7Z8Qs8eB8SLF3dAJgG5MI/Rick-%26-Morty-Project?type=design&node-id=1%3A2&mode=design&t=KcvMCkYgTfIHx7Gi-1) 
