@@ -9,18 +9,19 @@ import { Router } from '@angular/router';
   templateUrl: './home-root.component.html',
   styleUrls: ['./home-root.component.scss']
 })
-export class HomeRootComponent{
+export class HomeRootComponent {
 
+  // Using 'inject' to obtain an instance of BreakpointObserver
   private breakpointObserver = inject(BreakpointObserver);
 
-  constructor(private router: Router){}
+  constructor(private router: Router) {}
 
-
-
-  onClick():void{
-    this.router.navigate(['/login'])
+  // Function to navigate to the login page when the button is clicked
+  onClick(): void {
+    this.router.navigate(['/login']);
   }
 
+  // Observable to track if the screen is in 'Handset' mode (small screens, e.g., mobile)
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),

@@ -9,22 +9,25 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent {
 
-  constructor(private router: Router){}
+  constructor(private router: Router) {}
 
+  // Valid email and password values
   valid_email: string = "ricksanchez@rick.com";
   valid_password: string = '123';
 
-  loginFormGroup = new FormGroup(
-    {
-      email: new FormControl('ricksanchez@rick.com',[Validators.required,Validators.email,]),
-      password: new FormControl('123',[Validators.required])
-    }
-  );
+  // FormGroup for the login form with validators
+  loginFormGroup = new FormGroup({
+    email: new FormControl('ricksanchez@rick.com', [Validators.required, Validators.email]),
+    password: new FormControl('123', [Validators.required])
+  });
 
-  onClick(): boolean{
+  // Function called when the login button is clicked
+  onClick(): boolean {
 
-    if(this.valid_email == this.loginFormGroup.value.email && this.valid_password == this.loginFormGroup.value.password){
-      this.router.navigate(['/home/list-characters'])
+    // Check if the entered email and password match the valid values
+    if (this.valid_email == this.loginFormGroup.value.email && this.valid_password == this.loginFormGroup.value.password) {
+      // Navigate to the '/home/list-characters' route if the credentials are valid
+      this.router.navigate(['/home/list-characters']);
       return true;
     }
     return false;
