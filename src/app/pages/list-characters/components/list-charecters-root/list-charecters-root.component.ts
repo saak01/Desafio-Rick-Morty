@@ -18,6 +18,7 @@ export class ListCharectersRootComponent implements OnInit {
   listFilteredCharacters: Array<CharacterInterface> = [];
   isLoading: boolean = true;
   searchTerm: string = '';
+  isLoadingScroll = false;
 
   constructor(
     private listCharacterService: ListCharactersService,
@@ -62,6 +63,7 @@ export class ListCharectersRootComponent implements OnInit {
 
   onScroll() {
     if (this.infoApi?.info.next) {
+      this.isLoadingScroll = true;
       // Fetch next set of characters when scrolling
       firstValueFrom(this.listCharacterService.getNextOrPrevCharacters(this.infoApi.info.next))
         .then((data) => {
@@ -71,13 +73,17 @@ export class ListCharectersRootComponent implements OnInit {
           // Combine existing characters with new characters
           this.listCharacters = [...this.listCharacters, ...newCharacters];
 
-          // Filter characters based on the search input
+          setTimeout(() => {
+                      // Filter characters based on the search input
           this.listFilteredCharacters = this.listCharacters.filter((character: CharacterInterface) => {
             const characterName = character.name.toLowerCase();
             return characterName.includes(this.searchTerm.toLowerCase());
           });
+          this.isLoadingScroll = false;
+          }, 1000);
         })
         .catch((error) => {
+          this.isLoadingScroll = false;
           console.log(error);
         });
     }

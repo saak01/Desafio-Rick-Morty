@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CharactersDetailsComponent } from './pages/list-characters/components/characters-details/characters-details.component';
 import { ListFavoritesRootComponent } from './pages/list-favorites/components/list-favorites-root/list-favorites-root.component';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -36,6 +36,7 @@ import { ListFavoritesRootComponent } from './pages/list-favorites/components/li
     CardMenuComponent,
     CharactersDetailsComponent,
     ListFavoritesRootComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -51,8 +52,8 @@ import { ListFavoritesRootComponent } from './pages/list-favorites/components/li
     MatIconModule,
     MatListModule,
     NgxSkeletonLoaderModule,
-    InfiniteScrollModule
-
+    InfiniteScrollModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [],
