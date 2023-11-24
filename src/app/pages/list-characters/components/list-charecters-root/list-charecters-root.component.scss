@@ -14,13 +14,16 @@
   z-index: 1;
   left: 0;
   right: 0;
-  margin: 10px;
+  background-color: #00b5cc;
+  padding: 10px;
   @media screen and (max-width: 800px) {
     position: absolute;
     z-index: 1;
     left: 0;
     right: 0;
-    margin-top: 80px;
+    margin-top: 40px;
+    background-color: none;
+    padding: auto;
   }
 }
 

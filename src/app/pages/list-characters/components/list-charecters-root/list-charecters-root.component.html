@@ -1,13 +1,15 @@
-<section class="list-container" id="teste"  infiniteScroll
+<section class="list-container"  infiniteScroll
 [infiniteScrollDistance]="2"
 [infiniteScrollThrottle]="500"
 (scrolled)="onScroll()"
 [scrollWindow]="false">
   <!-- Search Header -->
+<div>
   <header class="d-flex justify-content-center" id="header">
     <input class="input-search" type="text" (input)="onInputChange($event)" placeholder="Ex: Rick Sanchez">
     <button class="button-search"><mat-icon>search</mat-icon></button>
   </header>
+</div>
 
   <!-- Error Page -->
   <section class="d-flex justify-content-center" *ngIf="this.listFilteredCharacters.length == 0">
