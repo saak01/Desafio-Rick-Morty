@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.login-container{
+.login-container {
   display: flex;
   flex-direction: column;
   border-radius: 12px;
@@ -14,19 +14,28 @@
   width: 568px;
   height: 712px;
   background-color: #ffffff;
+
   @media screen and (max-width: 470px) {
     width: 90%;
+    height: 610px;
     background-color: #ffffff;
+    @media screen and (max-width: 380px) {
+    width: 95%;
+    height: 95%;
+    }
   }
 }
 
-.logo-holder{
+.logo-holder {
   display: flex;
   justify-content: center;
 }
-.logo{
+
+.logo {
   height: 324px;
+
   @media screen and (max-width: 470px) {
-    width: 300px;
+    height: 280px;
+    width: 280px;
   }
 }
