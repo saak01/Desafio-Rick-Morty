@@ -1,4 +1,5 @@
-# Projeto Rick and Morty SPA
+# Projeto Rick and Morty
+
 
 ## Introdução
 O projeto Rick and Morty SPA é uma Single Page Application desenvolvida utilizando a API Rick & Morty para o consumo de dados. A aplicação segue o modelo de dashboard, apresentando listagens e detalhes dos personagens da série.
